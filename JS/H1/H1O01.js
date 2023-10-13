@@ -12,7 +12,7 @@ function draw() {
 
   // groene cirkel zonder rand
   noStroke();
-  fill('green');
+  fill('black');
   ellipse(groeneCirkelX, groeneCirkelY, 400);  // Diameter 400 (straal 200)
 
   // Witte cirkel zonder rand en met diameter van 300
