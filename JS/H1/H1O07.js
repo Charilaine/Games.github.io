@@ -25,9 +25,9 @@ function draw() {
   // Begin push-pop blok
   push();
   fill(255, 225, 0);
+  rotate(-45);
   rect(0, 0, 50, 50);
   // Einde push-pop blok
-  rotate(-45);
 
   // Einde rotatie voor het gele vierkant
 }
