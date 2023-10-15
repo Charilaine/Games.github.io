@@ -15,13 +15,14 @@ function draw() {
   text("yJOS: " + round(yJOS) + " (mouseY:" + round(mouseY) + ")", 260, 20);
 
   // Beperk de horizontale positie van JOS tot de rand van het canvas
-  xJOS = constrain(mouseX, 75, 825); // Aangepaste waarden voor links en rechts
+  xJOS = constrain(mouseX, 150, width - 150); 
+
   // Beperk de verticale positie van JOS tot de rand van het canvas
-  yJOS = constrain(mouseY, 75, 3000); // Aangepaste waarden voor boven en onder
+  yJOS = constrain(mouseY, 150, height - 150); 
 
   push();
-  scale(0.5); // Schaal Jos op 50% van zijn normale grootte
   translate(xJOS, yJOS);
+  scale(0.5); // Schaal Jos op 50% van zijn normale grootte
 
   // in de volgende regels wordt JOS getekend
 
