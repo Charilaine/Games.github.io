@@ -1,34 +1,27 @@
 function setup() {
-  canvas = createCanvas(450,450);
-  background('orange');
+  canvas = createCanvas(450, 450);
+  background('darkred');
   canvas.parent('processing');
   noLoop();
 }
 
 function draw() {
-  // noStroke();
-  // fill('darkred');
-  // triangle(0,0,0,450,450,450);
-  
-  
-    strokeWeight(5);
-    stroke('pink');
-    fill('darkred');
-    beginShape();
-    vertex(225, 225);
-    vertex(300, 225);
-    vertex(-1200, -425);  
-    // Modified vertex coordinates
-    endShape(CLOSE);
-} 
 
-function draw() {
-  strokeWeight(5);
+  // Driehoek 1
+  fill('pink');
   stroke('pink');
-  fill('darkred');
   beginShape();
-  vertex(1200, 225);
-  vertex(300, 225);
-  vertex(-200, -425);  // Modified vertex coordinates
+  vertex(450, 0);    // Punt A (rechts boven)
+  vertex(450, 450);  // Punt B (rechts onder)
+  vertex(0, 225);    // Punt D (links midden)
+  endShape(CLOSE);
+
+  // Driehoek 2 
+  fill('purple');
+  stroke('purple');
+  beginShape();
+  vertex(0, 0);     // Punt A (linksboven)
+  vertex(0, 450);   // Punt B (linksonder)
+  vertex(450, 225); // Punt C (midden rechts
   endShape(CLOSE);
 }
