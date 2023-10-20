@@ -1,7 +1,7 @@
 var zoomNiveau = 3;
 
 function setup() {
-  canvas = createCanvas(450,450);
+  canvas = createCanvas(450, 450);
   canvas.parent('processing');
   textFont("Verdana");
   textSize(19);
@@ -12,33 +12,32 @@ function setup() {
 function draw() {
   background('lavender');
   fill('white');
-  rect(0,0,width,30);
-  fill('black');  
-  text("Druk op een toets | huidig zoomniveau: " + round(10*zoomNiveau) / 10,5,20);
+  rect(0, 0, width, 30);
+  fill('black');
+  text("Druk op de muis | Huidig zoomniveau: " + round(10 * zoomNiveau) / 10, 5, 20);
   if (mouseIsPressed == true) {
     zoomNiveau += 0.1;
-  }
-  else {
+  } else {
     zoomNiveau -= 0.1;
   }
-  tekenJos(width / 2,height / 2,zoomNiveau);
+  tekenJos(width / 2, height / 2, zoomNiveau);
 }
 
-function tekenJos(x,y,s) {
+function tekenJos(x, y, s) {
   push();
-  translate(x,y);
-  scale(s); 
+  translate(x, y);
+  scale(s);
   noStroke();
   fill('indianred');
-  ellipse(0,0,50);
+  ellipse(0, 0, 50);
   fill('slategray');
-  ellipse(-7,-10,17);
-  ellipse(7,-10,17);
+  ellipse(-7, -10, 17);
+  ellipse(7, -10, 17);
   fill('white');
-  ellipse(-7,-8,7,13);
-  ellipse(7,-8,7,13);
+  ellipse(-7, -8, 7, 13);
+  ellipse(7, -8, 7, 13);
   fill('orange');
-  ellipse(0,3,17);
+  ellipse(0, 3, 17);
   stroke('slategray');
   strokeWeight(3);
   fill('white');

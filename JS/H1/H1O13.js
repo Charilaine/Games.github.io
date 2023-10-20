@@ -6,6 +6,8 @@ function setup() {
   canvas.parent('processing');
   textFont("Verdana");
   textSize(14);
+  xJOS = width / 2; // Plaats JOS in het midden van het canvas
+  yJOS = height / 2;
 }
 
 function draw() {
@@ -14,17 +16,15 @@ function draw() {
   text("xJOS: " + round(xJOS) + " (mouseX:" + round(mouseX) + ")", 10, 20);
   text("yJOS: " + round(yJOS) + " (mouseY:" + round(mouseY) + ")", 260, 20);
 
-  // Beperk de horizontale positie van JOS tot de rand van het canvas
-  xJOS = constrain(mouseX, 150, width - 150); 
-
-  // Beperk de verticale positie van JOS tot de rand van het canvas
-  yJOS = constrain(mouseY, 150, height - 150); 
+  // Zet de positie van JOS gelijk aan die van de muis binnen de grenzen van het canvas
+  xJOS = constrain(mouseX, 38, width - 38);
+  yJOS = constrain(mouseY, 38, height - 38);
 
   push();
   translate(xJOS, yJOS);
   scale(0.5); // Schaal Jos op 50% van zijn normale grootte
 
-  // in de volgende regels wordt JOS getekend
+  // Hier wordt JOS getekend
 
   noStroke();
   fill('indianred');

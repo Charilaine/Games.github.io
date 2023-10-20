@@ -24,4 +24,14 @@ function draw() {
   vertex(0, 450);   // Punt B (linksonder)
   vertex(450, 225); // Punt C (midden rechts
   endShape(CLOSE);
+
+  strokeWeight(5);
+  stroke('pink');
+  fill('darkred');
+  beginShape();
+  vertex(225,115);
+  vertex(300,225);
+  vertex(225,335);
+  vertex(0,225);
+  endShape(CLOSE);
 }
