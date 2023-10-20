@@ -18,6 +18,7 @@ function setup() {
   yPositie = height / 2;
 }
 
+
 function draw() {
   background(0, 0, 75, 0.05);
   fill(0, 0, 255, 1);
