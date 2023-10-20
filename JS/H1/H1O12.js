@@ -11,6 +11,13 @@ function setup() {
 function draw() {
   background('lavender');
   fill('black');
+
+  // Beweeg JOS naar links
+  xJOS--;
+
+  // Beweeg JOS omhoog met een snelheid van 2 keer de horizontale beweging
+  yJOS -= 2;
+
   text("mouseX:" + round(mouseX) + " mouseY:" + round(mouseY), 10, 20);
   text("xJOS:" + xJOS + " yJOS:" + yJOS, 300, 20);
 
@@ -18,7 +25,6 @@ function draw() {
   translate(mouseX, mouseY);
 
   // in de volgende regels wordt JOS getekend
-
   push();
   noStroke();
   fill('indianred');
@@ -37,5 +43,4 @@ function draw() {
   arc(0, 40, 80, 40, 0, PI, CHORD);
   pop();
   // einde tekenen JOS
-
 }
