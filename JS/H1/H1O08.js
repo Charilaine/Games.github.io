@@ -5,7 +5,7 @@ var uitkomst2;
 var uitkomst3;
 
 function setup() {
-  canvas = createCanvas(1050, 750);  // Grootte van het canvas aangepast
+  canvas = createCanvas(1100, 800);  // Grootte van het canvas aangepast
   background('orange');
   canvas.parent('processing');
   textFont("Georgia");

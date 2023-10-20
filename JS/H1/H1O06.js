@@ -8,12 +8,16 @@ function setup() {
 function draw() {
   noStroke();
   fill('thistle');
+ 
+ //1 
   translate(50,50);
   rect(0,0,100,100);
   
+  //2
   translate(140,0);
   rect(0,0,100,100);
 
+  //3
   translate(140,0);
   rect(0,0,100,100);
   
@@ -27,16 +31,15 @@ function draw() {
    translate(0,40);
    rect(0,0,100,100);
   
+
+  //5
   translate(140,0);
   rect(0,0,100,100);
-
+  //einde aanpassing 
   pop();
-  // EINDE aanpassing
 
+  //6
+  translate(140,0);
   translate(140,0);
   rect(0,0,100,100);
-
-  
-
-  
 }

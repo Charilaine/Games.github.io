@@ -14,7 +14,7 @@ function setup() {
   noStroke();
   textFont("Verdana");
   textSize(140);
-  xPositie = width / 2;
+  xPositie = straal;
   yPositie = height / 2;
 }
 
@@ -25,7 +25,6 @@ function draw() {
   xPositie += xSnelheid;
   yPositie += ySnelheid;
   fill(255, 255, 255, 1);
-
   xPositie = constrain(xPositie, straal, width - straal);
   yPositie = constrain(yPositie, straal, height - straal);
   ellipse(xPositie, yPositie, 2 * straal);
