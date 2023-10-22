@@ -9,26 +9,25 @@ function setup() {
 function draw() {
   background('cornflowerblue');
   schaal = 1 + mouseY / height;
+  tekenZon(mouseX,schaal);
 
   // teken de grond
   fill('wheat');
   rect(0, 250, width, height - 250);
 
-// Teken de zon op de horizontale muispositie met de schaal 'schaal'
-tekenZon(mouseX, schaal);
-
-
   // Teken de bomen achter het huis
-  tekenBoom(700);
-  tekenBoom(900);
   tekenBoom(50);
   tekenBoom(150);
   tekenBoom(250);
+  tekenBoom(700);
+  tekenBoom(900);
 
   // Teken het huis
   tekenHuis();
 
 }
+
+
 
 function tekenHuis() {
   push();
