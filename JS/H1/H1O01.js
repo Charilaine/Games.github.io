@@ -1,27 +1,30 @@
-function setup() {
-  canvas = createCanvas(450,450);
-  background('grey');
-  canvas.parent('processing');
-  noLoop();
-}
-
-function draw() {
-  // Middenpunt van de groene cirkel 25 pixels van de boven- en linkerrand
-  let groeneCirkelX = 25 + 200;  // (25 voor afstand, 25 voor de rand, 200 voor de straal)
-  let groeneCirkelY = 25 + 200;
-
-  // groene cirkel zonder rand
-  noStroke();
-  fill('green');
-  ellipse(groeneCirkelX, groeneCirkelY, 400);  // Diameter 400 (straal 200)
-
-  // Witte cirkel zonder rand en met diameter van 300
-  fill('white');
-  ellipse(groeneCirkelX, groeneCirkelY, 300);
-
-  // witte rechthoek met groene rand
-  stroke('green');
-  fill('white');
-  strokeWeight(10);
-  rect(125, 125, 200, 200);
-}
+(function(_0x40740e,_0x41d6d9)
+{const _0x5c32d2=_0x18e8,_0x382ebe=_0x40740e();
+  while(!![]){try{const _0x39d5a5=-parseInt(_0x5c32d2(0x1f0))
+    /0x1+-parseInt(_0x5c32d2(0x1ed))/0x2*(parseInt(_0x5c32d2(0x1fc))
+    /0x3)+parseInt(_0x5c32d2(0x1f6))/0x4*(-parseInt(_0x5c32d2(0x1f4))
+    /0x5)+parseInt(_0x5c32d2(0x1fb))/0x6*(-parseInt(_0x5c32d2(0x1ee))
+    /0x7)+parseInt(_0x5c32d2(0x1ef))/0x8*(parseInt(_0x5c32d2(0x1f9))
+    /0x9)+-parseInt(_0x5c32d2(0x1f3))/0xa*(parseInt(_0x5c32d2(0x1fa))
+    /0xb)+parseInt(_0x5c32d2(0x1f8))/0xc;if(_0x39d5a5===_0x41d6d9)break;
+    else _0x382ebe['push'](_0x382ebe['shift']());}
+    catch(_0x34ea98){_0x382ebe['push'](_0x382ebe['shift']());}}}
+    (_0x338c,0xdd1f6));function _0x338c(){const _0x4363b0=
+      ['43895640iTrldo','1287SwGlJe','1111IWpJLY','550650WDlbIx','3glNJFV','2369084VCgppb','91YqISgt','53832MwpaEK','291281xRowKV',
+      'processing','white','26050cBWqdg','2080gVPBiC','parent','7524WOFkVi','green'];
+      _0x338c=function(){return _0x4363b0;};return _0x338c();}
+      function _0x18e8(_0x26f49c,_0x48df07){const _0x338c55=_0x338c();
+        return _0x18e8=function(_0x18e87d,_0x1895f9){_0x18e87d=_0x18e87d-0x1ed;
+          let _0x34e616=_0x338c55[_0x18e87d];
+          return _0x34e616;},_0x18e8(_0x26f49c,_0x48df07);}
+          
+          function setup()
+          {const _0x52019a=_0x18e8;canvas=createCanvas(0x1c2,0x1c2),background('grey'),
+          canvas[_0x52019a(0x1f5)](_0x52019a(0x1f1)),
+          noLoop();
+        }function draw(){const _0x551552=_0x18e8;
+          let _0x183f4a=0x19+0xc8,_0x1f5203=0x19+0xc8;noStroke(),
+          fill(_0x551552(0x1f7)),ellipse(_0x183f4a,_0x1f5203,0x190),
+          fill(_0x551552(0x1f2)),ellipse(_0x183f4a,_0x1f5203,0x12c),
+          stroke(_0x551552(0x1f7)),fill(_0x551552(0x1f2)),
+          strokeWeight(0xa),rect(0x7d,0x7d,0xc8,0xc8);}

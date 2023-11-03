@@ -1,33 +1,33 @@
 
-function setup() {
-  canvas = createCanvas(450,450);
-  background('white');
-  canvas.parent('processing');
-  noLoop();
-  // colorMode(RGB, 255, 255, 255, 1);
-}
+function _0x1c02(_0x23aa53,_0x491fea)
+{var _0x451643=_0x4516();return _0x1c02=function(_0x1c02b3,_0x240aa7)
+  {_0x1c02b3=_0x1c02b3-0x163;var _0x4051a7=_0x451643[_0x1c02b3];
+    return _0x4051a7;},_0x1c02(_0x23aa53,_0x491fea);}(function(_0x459803,_0x155f7d){
+      var _0x5922d1=_0x1c02,_0x10fac6=_0x459803();
+      while(!![]){
+        try{var _0x339641=-parseInt(_0x5922d1(0x169))
+          /0x1*(-parseInt(_0x5922d1(0x164))/0x2)+parseInt(_0x5922d1(0x168))
+          /0x3*(parseInt(_0x5922d1(0x167))/0x4)+parseInt(_0x5922d1(0x16d))
+          /0x5+parseInt(_0x5922d1(0x171))/0x6+parseInt(_0x5922d1(0x170))
+          /0x7+-parseInt(_0x5922d1(0x165))/0x8*(-parseInt(_0x5922d1(0x172))
+          /0x9)+-parseInt(_0x5922d1(0x163))/0xa*(parseInt(_0x5922d1(0x174))
+          /0xb);if(_0x339641===_0x155f7d)break;else _0x10fac6['push']
+          (_0x10fac6['shift']());}catch(_0x4a63af){_0x10fac6['push'](_0x10fac6
+            ['shift']());}}}(_0x4516,0x81ec2));function 
+            
+            setup()
+            {var _0x2edbfc=_0x1c02;
+              canvas=createCanvas(0x1c2,0x1c2),
+              background(_0x2edbfc(0x16a)),
+              canvas[_0x2edbfc(0x16b)]('processing'),
+              noLoop();}function draw(){var _0x4ce365=_0x1c02;noStroke(),
+                fill(_0x4ce365(0x173)),rect(0x0,0x0,0x1c2,0x1c2),
+                fill(_0x4ce365(0x166)),rect(0x4b,0x0,0x4b,0x1c2),
+                fill(_0x4ce365(0x16c)),rect(0x0,0x96,0x1c2,0x96),
+                fill(_0x4ce365(0x16e)),ellipse(0x1c2,0xe1,0x1c2),
+                fill(_0x4ce365(0x16f)),triangle(0xe1,0x0,0x1c2,0xe1,0xe1,0x1c2);}
 
-function draw() {
-  noStroke();
-
-  // Blauwe balk met hexadecimale kleurcode (regel 19)
-  // Gebruik de juiste kleurcodering voor 'blue' (bijvoorbeeld '#0000FF')
-  fill('rgba(173, 216, 230, 0.5)'); // lightblue met alpha
-  rect(0,0,450,450);
-
-  // Groene balk met nieuwe kleur (regel 17)
-  fill('rgba(0, 0, 255, 0.5)'); // blue met alpha
-  rect(75,0,75,450);
-
-  // Onzichtbare blauwe balk met alpha (transparantie) (regel 20)
-  fill('rgba(0, 0, 255, 0.3)'); // transparant-blue
-  rect(0,150,450,150);
-
-  // Cirkel toevoegen met vulkleur 0.3
-  fill('rgba(0, 0, 139, 0.3)'); // darkblue met alpha
-  ellipse(450, 225, 450);
-
-  // Driehoek toevoegen voor figuur 1.9
-  fill('rgba(255, 255, 255, 0.5)'); // white met alpha
-  triangle(225, 0, 450, 225, 225, 450);
-}
+function _0x4516(){var _0x5aa2aa=
+  ['rgba(173,\x20216,\x20230,\x200.5)','16797lmxkmB','22840yCsWOR','16508MBNcfr','304wsiOkv','rgba(0,\x200,\x20255,\x200.5)','10316cKVlmU','933ekcnCC','127HcwIuT',
+  'white','parent','rgba(0,\x200,\x20255,\x200.3)','2085375LxYyPW','rgba(0,\x200,\x20139,\x200.3)','rgba(255,\x20255,\x20255,\x200.5)','4552296Ayvmoh','6364992boAHbt','9774GAJTbw'];_0x4516=function()
+{return _0x5aa2aa;};return _0x4516();}
