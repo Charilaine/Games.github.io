@@ -1,7 +1,7 @@
 var aantal = 5;
 
 function setup() {
-  canvas = createCanvas(450,450);
+  canvas = createCanvas(450, 450);
   canvas.parent('processing');
   frameRate(10);
   colorMode(RGB, 255, 255, 255, 1);
@@ -13,25 +13,26 @@ function setup() {
 function draw() {
   background('lavender');
   fill('black');
-  text("aantal = " + aantal,10,20);    
-  translate(225,225);
-  
-  // tekenen rode bladeren
-  
-  fill(178, 34, 34,.7);
-  ellipse(0,0,400,50);
-  rotate(360 / aantal);
+  text("aantal = " + aantal, 10, 20);
+  translate(225, 225);
 
-  
-  // gele vulkleur
+  // tekenen witte bladeren
+  fill(255);
 
-  fill(255, 195, 0,0.5);
+  for (var i = 0; i < aantal; i++) {
+    ellipse(0, 0, 400, 50);
+    rotate(360 / aantal);
+  }
 
+  // gele ronde binnenkant
+  fill(255, 195, 0, 0.5);
+
+  ellipse(0, 0, 100, 100);
 
   if (keyIsDown(LEFT_ARROW) && aantal >= 2) {
     aantal--;
   }
   if (keyIsDown(RIGHT_ARROW)) {
     aantal++;
-  }   
+  }
 }

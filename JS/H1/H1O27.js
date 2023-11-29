@@ -13,14 +13,14 @@ function setup() {
 function draw() {
   background('lavender');
   fill('black');
-  breedte = width / 4;
+  breedte = width / aantal;
   text("aantal = " + aantal,10,20);  
   
   push();
   translate(0.5*breedte,150);
 
-  for (var n = 0; n < 4;n++) {
-    tekenJos(2);
+  for (var n = 0; n < aantal; n++) {
+    tekenJos(2 + n / 2);
     translate(breedte,0);
   }
   
@@ -29,6 +29,10 @@ function draw() {
   if (keyIsDown(RIGHT_ARROW)) {
     aantal++;
   }   
+
+  if (keyIsDown(LEFT_ARROW)) {
+    aantal = max(1, aantal - 1);
+  }
 }
 
 function tekenJos(s) {
