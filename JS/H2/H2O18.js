@@ -4,25 +4,26 @@ var jos = {
   schaal: 1.0,
   naam: "Jos",
   
-  teken(muisPositieX) {
+  teken(muisPositieX, muisPositieY) {
     this.x = muisPositieX;
+    this.y = constrain(muisPositieY, 100, 150);
 
-    // de regels hieronder tot en met pop() zorgen dat Jos wordt getekend. Je hoeft ze niet aan te passen.
-    
+    this.schaal = this.x / (0.25 * width);
+
     push();
-    translate(this.x,this.y);
+    translate(this.x, this.y);
     scale(this.schaal);
     noStroke();
     fill('indianred');
-    ellipse(0,0,50);
+    ellipse(0, 0, 50);
     fill('slategray');
-    ellipse(-7,-10,17);
-    ellipse(7,-10,17);
+    ellipse(-7, -10, 17);
+    ellipse(7, -10, 17);
     fill('white');
-    ellipse(-7,-8,7,13);
-    ellipse(7,-8,7,13);
+    ellipse(-7, -8, 7, 13);
+    ellipse(7, -8, 7, 13);
     fill('orange');
-    ellipse(0,3,17);
+    ellipse(0, 3, 17);
     stroke('slategray');
     strokeWeight(3);
     fill('white');
@@ -31,9 +32,8 @@ var jos = {
   }
 };
 
-
 function setup() {
-  canvas = createCanvas(1000,250);
+  canvas = createCanvas(1000, 250);
   canvas.parent('processing');
   fill('black');
   textFont("Verdana");
@@ -44,7 +44,7 @@ function setup() {
 
 function draw() {
   background('lavender');
-  jos.teken(500);
+  jos.teken(mouseX, mouseY); 
   
-  text(jos.naam+" wordt getekend op x-positie (middelpunt neus) " + jos.x + ".",20,20);
+  text(jos.naam + " wordt getekend op x-positie (middelpunt neus) " + jos.x + " en y-positie " + jos.y + " met schaal " + jos.schaal.toFixed(2) + ".", 20, 20);
 }

@@ -50,6 +50,13 @@ var jos = {
     ellipse(7,-8,7,13);
     fill('orange');
     ellipse(0,3,17);
+
+    if (this.kleur === 'red') {
+      fill('black');
+    } else {
+      fill('white');
+    }
+
     stroke('slategray');
     strokeWeight(3);
     fill('white');
@@ -69,8 +76,14 @@ function setup() {
 function draw() {
   background('lavender');
   vuur.teken();
+
+    if (jos.isVlakbij(vuur)) {
+      // Als Jos te dicht bij het vuur is, kleur het gezicht rood
+      jos.kleur = 'red';
+    } else {
+      // Als Jos niet te dicht bij het vuur is, behoud de oorspronkelijke kleur
+      jos.kleur = 'salmon';
+    }
   
-  // voeg hier de if-else in
-  
-  jos.teken(mouseX,mouseY);
-}
+    jos.teken(mouseX, mouseY);
+  }

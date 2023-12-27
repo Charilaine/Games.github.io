@@ -42,14 +42,18 @@ function setup() {
 }
 
 function draw() {
-  background(0,0,75,0.2);
+  background(0, 0, 75, 0.2);
+
   for (var i = 0; i < knikkerVerzameling.length; i++) {
     knikkerVerzameling[i].beweeg();
     knikkerVerzameling[i].teken();
   } 
+
   if (mouseIsPressed) {
     for (var i = 0; i < knikkerVerzameling.length; i++) {
       knikkerVerzameling[i].beweeg();
     }
+
+    knikkerVerzameling.push(new Knikker(mouseX, mouseY, 'red'));
   }
 }

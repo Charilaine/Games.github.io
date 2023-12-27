@@ -17,26 +17,33 @@ var jager = {
     if (keyIsDown(DOWN_ARROW)) {
       this.y += this.stapGrootte;
     }
-    
-    this.x = constrain(this.x,0,canvas.width - this.zijde);
-    this.y = constrain(this.y,0,canvas.height - this.zijde);
-  },
-  
-  vlakbijRand() {
-    if (this.x < 4*this.stapGrootte || this.x > canvas.width - 4*this.stapGrootte - this.zijde) {
-      return true;
+
+    this.x = constrain(this.x, 0, canvas.width - this.zijde);
+    this.y = constrain(this.y, 0, canvas.height - this.zijde);
+
+    if (this.vlakbijRand()) {
+      prooi.benGeraakt = false;
     }
-    else {
+  },
+
+  vlakbijRand() {
+    if (
+      this.x < 4 * this.stapGrootte ||
+      this.x > canvas.width - 4 * this.stapGrootte - this.zijde ||
+      this.y < 4 * this.stapGrootte ||
+      this.y > canvas.height - 4 * this.stapGrootte - this.zijde
+    ) {
+      return true;
+    } else {
       return false;
     }
   },
-  
+
   teken() {
     fill('dodgerblue');
-    rect(this.x,this.y,this.zijde,this.zijde);
-  }
-}
-
+    rect(this.x, this.y, this.zijde, this.zijde);
+  },
+};
 
 var prooi = {
   x: 800,
@@ -44,27 +51,34 @@ var prooi = {
   breedte: 75,
   hoogte: 50,
   benGeraakt: false,
-  
+
   wordJeGeraakt(vijand) {
-    if (vijand.x >= this.x - vijand.zijde && vijand.x <= this.x + this.breedte) {
-      this.benGeraakt=true;
+    if (
+      vijand.x >= this.x - vijand.zijde &&
+      vijand.x <= this.x + this.breedte &&
+      vijand.y >= this.y - vijand.zijde &&
+      vijand.y <= this.y + this.hoogte
+    ) {
+      this.benGeraakt = true;
     }
-  },  
-  
+
+    if (jager.vlakbijRand()) {
+      this.benGeraakt = false;
+    }
+  },
+
   teken() {
-    if(this.benGeraakt) {
+    if (this.benGeraakt) {
       fill('white');
-    }
-    else {
+    } else {
       fill('green');
     }
-    rect(this.x,this.y,this.breedte,this.hoogte);
-  }
-}
-
+    rect(this.x, this.y, this.breedte, this.hoogte);
+  },
+};
 
 function setup() {
-  canvas = createCanvas(1000,400);
+  canvas = createCanvas(1000, 400);
   canvas.parent('processing');
   noStroke();
   frameRate(50);
@@ -73,11 +87,10 @@ function setup() {
 function draw() {
   if (jager.vlakbijRand()) {
     background('red');
-  }
-  else {
+  } else {
     background('orange');
   }
-  
+
   jager.beweeg();
   prooi.wordJeGeraakt(jager);
   prooi.teken();
