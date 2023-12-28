@@ -28,22 +28,28 @@ function setup() {
   hoogte = spriteSheet.height;
   sBr = breedte / aantalSpriteKolommen;
   sHo = hoogte / aantalSpriteRijen;
-  br = sBr*schaal;
-  ho = sBr*schaal;
+  br = sBr * schaal;
+  ho = sBr * schaal;
 }
 
 function draw() {
   background('lavender');
-  image(spriteSheet,x,y,br,ho,(frameCount % aantalSpriteKolommen)*sBr,rij*sHo,sBr,sHo);
+  image(spriteSheet, x, y, br, ho, (frameCount % aantalSpriteKolommen) * sBr, rij * sHo, sBr, sHo);
 
   kolom = frameCount % aantalSpriteKolommen;
 
   fill('black');
-  text("frameCount=" + frameCount,5,20);
-  text("kolom=" + kolom,5,40);
-  text("rij=" + rij,5,60);
+  text("frameCount=" + frameCount, 5, 20);
+  text("kolom=" + kolom, 5, 40);
+  text("rij=" + rij, 5, 60);
   
   fill('white');
-  rect(0,125,width,height - 125);
+  rect(0, 125, width, height - 125);
+
   image(spriteSheet,0,125,width,width*aantalSpriteRijen / aantalSpriteKolommen);  
+
+  // Logica om door de rijen te gaan en terug te keren naar de bovenste rij
+  if (kolom == aantalSpriteKolommen - 1) {
+    rij = (rij + 1) % aantalSpriteRijen;
+  }
 }

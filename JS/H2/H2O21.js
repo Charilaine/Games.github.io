@@ -20,7 +20,7 @@ var cirkel = {
   },
 
   controleerRaak() {
-    afstandMuisCirkel = dist(mouseX, mouseY, this.x, this.y);
+    var afstandMuisCirkel = dist(mouseX, mouseY, this.x, this.y);
 
     if (afstandMuisCirkel <= this.straal) {
       this.alpha *= 0.8; 

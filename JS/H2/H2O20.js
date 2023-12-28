@@ -74,6 +74,7 @@ function draw() {
   background(brug);
   raster.teken();
   jos.beweeg();
+  jos.stapGrootte = 2 * raster.celGrootte;
   jos.toon();
 
   text(jos.animatie[3].width, 5, 15);
