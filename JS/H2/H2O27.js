@@ -24,7 +24,12 @@ var detectielus = {
   ikVoelIets: false,
   
   detecteer(voorwerp) {
-    this.ikVoelIets = false;
+    if (voorwerp.x > this.x && voorwerp.x < this.x + this.lengte) {
+      this.ikVoelIets = true;
+      stoplicht.teller = 0;  
+    } else {
+      this.ikVoelIets = false;
+    }
   },
   
   teken() {
@@ -71,6 +76,7 @@ var stoplicht = {
     }
     pop();
     this.tijd++;
+    this.teller++;
   }
 }
 
@@ -93,4 +99,8 @@ function draw() {
   detectielus.detecteer(bal);
   stoplicht.bepaalStand(detectielus.ikVoelIets);
   stoplicht.teken();
+
+  if (frameCount - bal.laatsteTerugkeerTijd >= 500) {
+    bal.laatsteTerugkeerTijd = frameCount; 
+  }
 }

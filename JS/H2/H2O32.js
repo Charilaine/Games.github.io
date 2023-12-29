@@ -9,12 +9,16 @@ class Vis {
   zwem() {
     this.x += this.snelheid;
   }
+
+  beweegVerticaal(richting) {
+    this.y += this.snelheid * richting;
+    this.y = constrain(this.y, 20, height - 20); 
+  }
   
   eet(p) {
-    if (dist(this.x + 155,this.y + 60,p.x,p.y) < 20) {
+    if (dist(this.x + 155, this.y + 60, p.x, p.y) < 20) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
@@ -22,15 +26,15 @@ class Vis {
   teken() {
     push();
     noStroke();
-    translate(this.x,this.y);
+    translate(this.x, this.y);
     fill('peachpuff');
-    triangle(0,0,0,100,50,50);
+    triangle(0, 0, 0, 100, 50, 50);
     fill('palegoldenrod');
-    ellipse(100,50,120,80);
-    fill('steelblue')
-    triangle(145,60,165,50,165,70);
+    ellipse(100, 50, 120, 80);
+    fill('steelblue');
+    triangle(145, 60, 165, 50, 165, 70);
     fill('orange');
-    ellipse(150,40,10,10);
+    ellipse(150, 40, 10, 10);
     fill('red');
     pop();
   }
@@ -38,39 +42,60 @@ class Vis {
 
 class Prooi {
   constructor(d) {
-    this.x = random(700,800);
-    this.y = random(100,500);
+    this.x = random(700, 800);
+    this.y = random(100, 500);
     this.diameter = 30;
   }
   
   beweeg() {
-    this.x += random(-15,15);
-    this.y += random(-25,25);
-    this.x = constrain(this.x,700,800);
-    this.y = constrain(this.y,20,580);
+    this.x += random(-15, 15);
+    this.y += random(-25, 25);
+    this.x = constrain(this.x, 700, 800);
+    this.y = constrain(this.y, 20, 580);
   }
   
   teken() {
     push();
     noStroke();
-    translate(this.x,this.y);
-    ellipse(0,0,20,20);
+    translate(this.x, this.y);
+    ellipse(0, 0, 20, 20);
     pop();
+  }
+  resetPositie() {
+    this.x = random(700, 800);
+    this.y = random(100, 500);
   }
 }
 
+let bewegingRichting = 0;
+let gup, garnaal;
+
 function setup() {
-  canvas = createCanvas(900,600);
+  canvas = createCanvas(900, 600);
   canvas.parent('processing');
   frameRate(10);
-  textFont("Verdana");
+  textFont('Verdana');
   textSize(90);
   gup = new Vis();
   garnaal = new Prooi(40);
 }
 
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+    bewegingRichting = -1;
+  } else if (keyCode === DOWN_ARROW) {
+    bewegingRichting = 1;
+  }
+}
+
+function keyReleased() {
+  bewegingRichting = 0;
+}
+
 function draw() {
   background('steelblue');
+  
+  gup.beweegVerticaal(bewegingRichting);
   gup.zwem();
   gup.teken();
   
@@ -80,11 +105,13 @@ function draw() {
   if (gup.eet(garnaal)) {
     gup.x = -170;
     gup.gegeten++;
+    garnaal.resetPositie();
+    gup.snelheid += 3;
   }
   if (gup.x > 800) {
     background('red');
     noLoop();
   }
   
-  text(gup.gegeten,5,70);
+  text(gup.gegeten, 5, 70);
 }

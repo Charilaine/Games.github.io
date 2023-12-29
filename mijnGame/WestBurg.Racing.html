@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WestBurg Racing</title>
+    <style>
+        body {
+            background-color: #87CEEB; 
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            background-color: lightblue;
+            background-size: cover;
+        }
+
+        .road {
+            width: 400px;
+            height: 100vh;
+            background-color: black;
+            margin: auto;
+            position: relative;
+            border-left: 7px dashed white;
+            border-right: 7px dashed white;
+        }
+
+        .car {
+            width: 100px;
+            height: 140px;
+            background-color: black;
+            position: absolute;
+            bottom: 120px;
+            background-image: url("../images/rood2.png");
+            background-size: cover;
+        }
+
+        .line {
+            width: 10px;
+            height: 100px;
+            position: absolute;
+            background-color: white;
+            margin-left: 195px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="road"></div>
+    </div>
+    <script> 
+        const roadarea = document.querySelector('.road')
+        let player = {x: 0, y: 0, step: 5, speed: 5, start: false}; 
+
+        let keys = {ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false};
+        document.addEventListener('keydown', keydown);
+        document.addEventListener('keyup', keyUp);
+
+        function keydown(ev) {
+            keys[ev.key] = true; 
+        }
+
+        function keyUp(ev) {
+            keys[ev.key] = false;
+        }
+
+        function playarea() {
+            let playercar = document.querySelector('.car');
+            let road = roadarea.getBoundingClientRect();
+            if (player.start) {
+                if (keys.ArrowUp && player.y > (road.top + 80)) {
+                    player.y = player.y - player.speed;
+                }
+
+                if (keys.ArrowDown && player.y < (road.bottom - 80)) {
+                    player.y = player.y + player.speed;
+                }
+
+                if (keys.ArrowLeft && player.x > 0) {
+                    player.x = player.x - player.step;
+                }
+
+                if (keys.ArrowRight && player.x < (road.width - 64)) {
+                    player.x = player.x + player.step;
+                }
+
+                playercar.style.top = player.y + 'px'; 
+                playercar.style.left = player.x + 'px';
+                
+                window.requestAnimationFrame(playarea); // Gebruik 'playarea', niet 'player'
+            }
+        }
+
+        function init() {
+            player.start = true; 
+            window.requestAnimationFrame(playarea);
+
+            let playercar = document.createElement('div');
+            playercar.setAttribute('class', 'car');
+            roadarea.appendChild(playercar);
+
+            player.x = playercar.offsetLeft;
+            player.y = playercar.offsetTop;
+
+            // Roadlines repeated
+            for (let x = 0; x < 5; x++) {
+                let roadlines = document.createElement('div');
+                roadlines.setAttribute('class', 'line');
+                roadlines.y = x * 150;
+                roadlines.style.top = roadlines.y + 'px';
+                roadarea.appendChild(roadlines);
+            }
+        }
+
+        init(); 
+    </script>
+</body>
+</html>
+
+
