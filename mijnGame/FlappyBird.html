@@ -8,10 +8,22 @@
         body {
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
+            background-color: skyblue;
+            margin: 0;
+            overflow: hidden;
+        }
+        #board {
+            background-image: url("../images/backgrounds/flappybird.background.png");
+            background-size: contain;
         }
 
-        #board {
-            background-image: url("flappybird.background.png");
+        #text-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-align: left;
+            color: green;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -20,12 +32,12 @@
 
     <script>
         let board;
-        let boardWidth = 360;
-        let boardHeight = 640;
+        let boardWidth = 1500;
+        let boardHeight = 800;
         let context;
 
-        let birdWidth = 34;
-        let birdHeight = 24;
+        let birdWidth = 50;
+        let birdHeight = 30;
         let birdX = boardWidth / 8;
         let birdY = boardHeight / 2;
         let birdImg;
@@ -52,6 +64,7 @@
 
         let gameOver = false;
         let score = 0;
+        let highscore = 0;
 
         window.onload = function () {
             board = document.getElementById("board");
@@ -66,10 +79,10 @@
             };
 
             topPipeImg = new Image();
-            topPipeImg.src = "toppipe.png";
+            topPipeImg.src = "../images/toppipe.png";
 
             bottomPipeImg = new Image();
-            bottomPipeImg.src = "groene_bottom_buis.png";
+            bottomPipeImg.src = "../images/bottompipe.png";
 
             requestAnimationFrame(update);
             setInterval(placePipes, 1500);
@@ -89,6 +102,7 @@
 
             if (bird.y > board.height) {
                 gameOver = true;
+                updateHighscore();
             }
 
             for (let i = 0; i < pipeArray.length; i++) {
@@ -99,10 +113,12 @@
                 if (!pipe.passed && bird.x > pipe.x + pipe.width) {
                     score += 0.5;
                     pipe.passed = true;
+                    updateHighscore();
                 }
 
                 if (detectCollision(bird, pipe)) {
                     gameOver = true;
+                    updateHighscore();
                 }
             }
 
@@ -110,12 +126,13 @@
                 pipeArray.shift();
             }
 
-            context.fillStyle = "white";
+            context.fillStyle = "green";
             context.font = "45px sans-serif";
-            context.fillText(score, 5, 45);
+            context.fillText("Score: " + score, 10, 50);
+            context.fillText("Highscore: " + highscore, 10, 100);
 
             if (gameOver) {
-                context.fillText("GAME OVER", 5, 90);
+                context.fillText("GAME OVER", 10, 150);
             }
         }
 
@@ -166,6 +183,12 @@
                 a.x + a.width > b.x &&
                 a.y < b.y + b.height &&
                 a.y + a.height > b.y;
+        }
+
+        function updateHighscore() {
+            if (score > highscore) {
+                highscore = score;
+            }
         }
     </script>
 </body>
