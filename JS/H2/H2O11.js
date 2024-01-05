@@ -1,5 +1,5 @@
 var animatie = [];
-var aantalBeeldjes = 6;
+var aantalBeeldjes = 30;
 var nummer = 0;
 var breedte,hoogte;
 
